@@ -14,7 +14,7 @@ function App() {
     () =>
       Array.from({ length: 15 }, (_, i) => ({ 
         id: i,
-        url: `https://cataas.com/cat? ${i}`,
+        url: `https://cataas.com/cat?${i}`,
       })),
     []
   );
@@ -57,7 +57,7 @@ function App() {
     console.log(`Card ${id} left screen`);
     
     // Check if all cards are gone to show results
-    if (currentIndexRef. current < 0) {
+    if (currentIndexRef.current < 0) {
       setTimeout(() => setShowResults(true), 300);
     }
   };
@@ -65,7 +65,7 @@ function App() {
   // Programmatically trigger swipe with buttons
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < cats.length) {
-      await childRefs[currentIndex]. current.swipe(dir);
+      await childRefs[currentIndex].current.swipe(dir);
     }
   };
 
@@ -124,7 +124,7 @@ function App() {
           <TinderCard
             ref={childRefs[index]}
             className="swipe"
-            key={cat. id}
+            key={cat.id}
             onSwipe={(dir) => swiped(dir, cat, index)}
             onCardLeftScreen={() => outOfFrame(cat.id, index)}
             preventSwipe={['up', 'down']}
